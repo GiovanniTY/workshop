@@ -1,11 +1,11 @@
 version: "3.1"
 
 
-"""
-nlu : Section principale qui contient les définitions des intentions
- et des exemples de phrases.
 
-"""
+##nlu : Section principale qui contient les définitions des intentions
+##et des exemples de phrases.
+
+
 
 
 
@@ -16,14 +16,14 @@ nlu:
   # Intention de salutation
   - intent: greet
 
-  """
-  intent : Nom de l'intention que le modèle NLP doit reconnaître.
-  Chaque intention représente un objectif ou une action que l'utilisateur souhaite accomplir,
-  comme poser une question ou exprimer une réponse.
   
-  examples : Liste de phrases qui servent d'exemples pour entraîner le modèle à reconnaître chaque intention.
-  Ces phrases doivent représenter des formulations réalistes de la part des utilisateurs.
-  """
+  ##intent : Nom de l'intention que le modèle NLP doit reconnaître.
+  ##Chaque intention représente un objectif ou une action que l'utilisateur souhaite accomplir,
+  ##comme poser une question ou exprimer une réponse.
+  
+  ##examples : Liste de phrases qui servent d'exemples pour entraîner le modèle à reconnaître chaque intention.
+  ##Ces phrases doivent représenter des formulations réalistes de la part des utilisateurs.
+  
     examples: |
       # Exemples de phrases représentant une salutation
       - bonjour
