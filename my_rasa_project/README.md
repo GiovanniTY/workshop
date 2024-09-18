@@ -90,3 +90,30 @@ Le fichier `endpoints.yml` permet de configurer les points de fin pour les servi
 Les actions personnalisées sont définies dans le fichier `actions.py`. Ajoutez ou modifiez des actions en fonction des besoins de votre chatbot.
 
 
+## Important
+
+Pour construire un chatbot intelligent, il est essentiel de définir des objectifs clairs :
+- Sur quel site allons-nous intégrer notre chatbot ?
+- Quelles informations doit-il connaître ?
+- Quels sont les services que nous proposons ?
+
+Il est crucial de fournir un maximum d'informations sur l'entreprise afin de former et tester le modèle de manière optimale.
+
+Une fois les paramètres ajustés dans les fichiers suivants :
+- `domain.yml`
+- `nlu.yml`
+- `rules.yml`
+- `stories.yml`
+
+Il est important d'entraîner le bot avec la commande :
+
+```bash
+rasa train
+```
+Ensuite, pour le tester, utilisez la commande suivante :
+
+```bash
+rasa shell
+```
+
+
