@@ -1,0 +1,139 @@
+version: "3.1"
+
+# Définition des histoires (stories) que le modèle de dialogue doit suivre pour comprendre et prédire les conversations des utilisateurs.
+# Chaque histoire est une séquence d'intentions et d'actions que le modèle apprend à gérer.
+
+stories:
+  # Histoire de base pour saluer l'utilisateur et répondre à une question sur les services
+  - story: happy path
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Ensuite, lorsque l'utilisateur exprime l'intention 'ask_services', le bot répond avec 'utter_ask_services'
+      - intent: ask_services
+      - action: utter_ask_services
+
+  # Histoire pour répondre à une question sur les prix après une salutation
+  - story: pricing question
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Ensuite, lorsque l'utilisateur exprime l'intention 'ask_pricing', le bot répond avec 'utter_ask_pricing'
+      - intent: ask_pricing
+      - action: utter_ask_pricing
+
+  # Histoire où l'utilisateur exprime d'abord de l'intérêt, puis se désintéresse
+  - story: user interested then not interested
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Lorsque l'utilisateur exprime l'intention 'ask_services', le bot répond avec 'utter_ask_services'
+      - intent: ask_services
+      - action: utter_ask_services
+      # Lorsque l'utilisateur exprime l'intention 'not_interested', le bot répond avec 'utter_not_interested'
+      - intent: not_interested
+      - action: utter_not_interested
+
+  # Histoire pour répondre à une question sur les coordonnées de contact
+  - story: contact question
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Lorsque l'utilisateur exprime l'intention 'ask_contact', le bot répond avec 'utter_ask_contact'
+      - intent: ask_contact
+      - action: utter_ask_contact
+
+  # Histoire pour répondre à une question sur l'entreprise
+  - story: about question
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Lorsque l'utilisateur exprime l'intention 'ask_about', le bot répond avec 'utter_ask_about'
+      - intent: ask_about
+      - action: utter_ask_about
+
+  # Histoire pour gérer un refus
+  - story: denial
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'deny', le bot répond avec 'utter_deny'
+      - intent: deny
+      - action: utter_deny
+
+  # Histoire interactive couvrant plusieurs intentions et actions
+  - story: interactive_story_1
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Lorsque l'utilisateur exprime l'intention 'ask_about', le bot répond avec 'utter_ask_about'
+      - intent: ask_about
+      - action: utter_ask_about
+      # Lorsque l'utilisateur exprime l'intention 'goodbye', le bot répond avec 'utter_goodbye'
+      - intent: goodbye
+      - action: utter_goodbye
+      # Lorsque l'utilisateur exprime l'intention 'deny', le bot répond avec 'utter_deny'
+      - intent: deny
+      - action: utter_deny
+      # Lorsque l'utilisateur exprime l'intention 'thank', le bot répond avec 'utter_thank_you'
+      - intent: thank
+      - action: utter_thank_you
+      # Lorsque l'utilisateur exprime l'intention 'not_interested', le bot répond avec 'utter_not_interested'
+      - intent: not_interested
+      - action: utter_not_interested
+      # Lorsque l'utilisateur exprime l'intention 'need_help', le bot répond avec 'utter_need_help'
+      - intent: need_help
+      - action: utter_need_help
+      # Lorsque l'utilisateur exprime l'intention 'feedback', le bot répond avec 'utter_feedback'
+      - intent: feedback
+      - action: utter_feedback
+
+  # Histoire où l'utilisateur demande de l'aide après un refus
+  - story: user needs help after a denial
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'deny', le bot répond avec 'utter_deny'
+      - intent: deny
+      - action: utter_deny
+      # Lorsque l'utilisateur exprime l'intention 'need_help', le bot répond avec 'utter_need_help'
+      - intent: need_help
+      - action: utter_need_help
+
+  # Histoire où l'utilisateur donne des commentaires après avoir demandé des informations sur les services
+  - story: user gives feedback after asking about services
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Lorsque l'utilisateur exprime l'intention 'ask_services', le bot répond avec 'utter_ask_services'
+      - intent: ask_services
+      - action: utter_ask_services
+      # Lorsque l'utilisateur exprime l'intention 'feedback', le bot répond avec 'utter_feedback'
+      - intent: feedback
+      - action: utter_feedback
+
+  # Histoire pour gérer les réponses de secours (fallback)
+  - story: fallback response handling
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'fallback', le bot répond avec 'utter_fallback'
+      - intent: fallback
+      - action: utter_fallback
+      # Lorsque l'utilisateur exprime l'intention 'need_help', le bot répond avec 'utter_need_help'
+      - intent: need_help
+      - action: utter_need_help
+
+  # Histoire où l'utilisateur remercie après avoir obtenu des informations de contact
+  - story: user thanks after contact information
+    steps:
+      # Lorsque l'utilisateur exprime l'intention 'greet', le bot répond avec 'utter_greet'
+      - intent: greet
+      - action: utter_greet
+      # Lorsque l'utilisateur exprime l'intention 'ask_contact', le bot répond avec 'utter_ask_contact'
+      - intent: ask_contact
+      - action: utter_ask_contact
+      # Lorsque l'utilisateur exprime l'intention 'thank', le bot répond avec 'utter_thank_you'
+      - intent: thank
+      - action: utter_thank_you

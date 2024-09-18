@@ -1,0 +1,119 @@
+version: "3.1"
+
+
+"""
+nlu : Section principale qui contient les définitions des intentions
+ et des exemples de phrases.
+
+"""
+
+
+
+
+
+# Section dédiée aux intentions du chatbot
+nlu:
+  # Intention de salutation
+  - intent: greet
+
+  """
+  intent : Nom de l'intention que le modèle NLP doit reconnaître.
+  Chaque intention représente un objectif ou une action que l'utilisateur souhaite accomplir,
+  comme poser une question ou exprimer une réponse.
+  
+  examples : Liste de phrases qui servent d'exemples pour entraîner le modèle à reconnaître chaque intention.
+  Ces phrases doivent représenter des formulations réalistes de la part des utilisateurs.
+  """
+    examples: |
+      # Exemples de phrases représentant une salutation
+      - bonjour
+      - salut
+      - coucou
+      - bonsoir
+      - wesh
+      - Salut
+
+  # Intention de prise de congé
+  - intent: goodbye
+    examples: |
+      # Exemples de phrases représentant un adieu
+      - au revoir
+      - adieu
+      - à bientôt
+      - à plus tard
+      - ok merci, au revoir
+
+ 
+
+  # Intention de demande d'informations sur les services
+  - intent: ask_services
+    examples: |
+      # Exemples de phrases demandant des informations sur les services proposés
+      - quels services proposez-vous ?
+      - que faites-vous ?
+      - pouvez-vous me parler de vos services ?
+
+  # Intention de demande d'informations sur les prix
+  - intent: ask_pricing
+    examples: |
+      # Exemples de phrases demandant des informations sur les prix
+      - quel est le prix de vos services ?
+      - combien ça coûte ?
+      - pouvez-vous me donner un devis ?
+      - je peux savoir les prix?
+
+  # Intention de demande d'informations pour le contact
+  - intent: ask_contact
+    examples: |
+      # Exemples de phrases demandant des informations pour le contact
+      - comment puis-je vous contacter ?
+      - quelle est votre adresse e-mail ?
+      - quel est votre numéro de téléphone ?
+
+  # Intention de demande d'informations générales sur l'entreprise
+  - intent: ask_about
+    examples: |
+      # Exemples de phrases demandant des informations sur l'entreprise
+      - parlez-moi de votre entreprise
+      - que faites-vous exactement ?
+      - pouvez-vous m'en dire plus sur vous ?
+      - je voudrais en savoir plus sur vos services
+
+  # Intention de refus ou de désintérêt
+  - intent: deny
+    examples: |
+      # Exemples de phrases exprimant un refus ou un désintérêt
+      - je passe mon tour
+      - pas maintenant
+      - je ne veux pas
+      - ce n'est pas pour moi
+      - non merci
+
+  # Intention spécifique de désintérêt
+  - intent: not_interested
+    examples: |
+      # Exemples de phrases exprimant un désintérêt spécifique
+      - non
+      - je ne suis pas intéressé
+      - ce n'est pas ce que je cherchais
+      - je passe
+      - pas intéressé
+      - non merci
+
+  # Intention de confirmation ou d'approbation
+  - intent: affirm
+    examples: |
+      # Exemples de phrases exprimant une confirmation ou une approbation
+      - oui
+      - d'accord
+      - c'est bon
+      - parfait
+
+  # Intention de remerciement
+  - intent: thank
+    examples: |
+      # Exemples de phrases exprimant de la gratitude
+      - merci en tout cas
+      - merci beaucoup
+      - merci
+      - je vous remercie

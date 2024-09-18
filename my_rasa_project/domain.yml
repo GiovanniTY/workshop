@@ -1,0 +1,145 @@
+version: '3.1'
+
+# Définition des intentions que le bot peut reconnaître
+intents:
+  # Intention d'affirmer ou de confirmer quelque chose
+  - affirm
+  # Intention de poser une question sur l'entreprise
+  - ask_about
+  # Intention de demander les coordonnées de contact
+  - ask_contact
+  # Intention de demander des informations sur les prix
+  - ask_pricing
+  # Intention de demander les services offerts
+  - ask_services
+  # Intention de refuser ou de nier
+  - deny
+  # Intention de dire au revoir
+  - goodbye
+  # Intention de saluer
+  - greet
+  # Intention de remercier
+  - thank
+  # Intention de réponse de secours lorsque le bot ne comprend pas
+  - fallback
+  # Intention de ne pas être intéressé
+  - not_interested
+  # Intention de demander de l'aide
+  - need_help
+  # Intention de donner des commentaires
+  - feedback
+
+# Définition des réponses que le bot peut fournir en fonction des intentions
+responses:
+  # Réponse pour remercier l'utilisateur
+  utter_thank_you:
+  - text: Merci à toi ! Je suis là pour t'aider.
+  
+  # Réponse pour saluer l'utilisateur
+  utter_greet:
+  - text: Bonjour ! Comment puis-je vous aider aujourd'hui ?
+  
+  # Réponse pour dire au revoir
+  utter_goodbye:
+  - text: Au revoir ! Si vous avez d'autres questions, n'hésitez pas à me contacter.
+  
+  # Réponses pour les questions sur les services
+  utter_ask_services:
+  - text: Nous proposons une variété de services web, y compris la création de sites web, le SEO et le marketing numérique.
+  - text: Nous offrons des services de développement web, optimisation SEO et stratégies de marketing digital.
+  - text: Nous sommes spécialisés dans la conception de sites internet, le référencement et le marketing en ligne.
+
+  # Réponses pour les questions sur les prix
+  utter_ask_pricing:
+  - text: Les prix varient en fonction des services. Contactez-nous pour un devis personnalisé.
+  - text: Pour obtenir un devis précis, nous vous invitons à nous contacter directement avec vos besoins spécifiques.
+  
+  # Réponses pour les questions sur les coordonnées de contact
+  utter_ask_contact:
+  - text: Vous pouvez nous contacter par email à info@entreprise.fr ou nous appeler au numéro +33 0123 456789.
+  - text: Nos coordonnées sont disponibles sur notre site web. Vous pouvez aussi nous joindre par téléphone ou email.
+
+  # Réponses pour les questions sur l'entreprise
+  utter_ask_about:
+  - text: Nous sommes une agence web spécialisée dans la création et la gestion de sites web, le SEO et le marketing numérique.
+  - text: Notre agence se concentre sur le développement web, le SEO, et le marketing digital pour aider votre entreprise à se développer en ligne.
+  
+  # Réponses pour gérer les refus
+  utter_deny:
+  - text: Désolé, je ne peux pas vous aider avec cette demande.
+  - text: Je comprends, mais je ne suis pas en mesure de répondre à cela.
+
+  # Réponses pour les affirmations
+  utter_affirm:
+  - text: Super ! Puis-je vous aider avec autre chose ?
+  - text: Parfait ! Y a-t-il autre chose que je puisse faire pour vous ?
+
+  # Réponse pour égayer la journée de l'utilisateur avec une image
+  utter_cheer_up:
+  - text: 'Voici quelque chose pour égayer votre journée :'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  
+  # Réponses pour vérifier si la réponse a été utile
+  utter_did_that_help:
+  - text: Cela vous a-t-il aidé ?
+  - text: Est-ce que cela répond à votre question ?
+
+  # Réponses de secours lorsque le bot ne comprend pas
+  utter_fallback:
+  - text: Désolé, je n'ai pas compris. Pouvez-vous reformuler votre question ?
+  - text: Je ne suis pas sûr de comprendre. Pourriez-vous essayer de reformuler ?
+
+  # Réponses pour les utilisateurs non intéressés
+  utter_not_interested:
+  - text: Je comprends. Si vous avez d'autres questions ou si vous changez d'avis, n'hésitez pas à me le faire savoir.
+  - text: D'accord, je respecte votre décision. Revenez vers moi si vous avez besoin d'aide plus tard.
+
+  # Réponses pour les demandes d'aide
+  utter_need_help:
+  - text: Je suis là pour vous aider ! Quel est le problème ou la question que vous avez ?
+  - text: N'hésitez pas à me dire en quoi je peux vous assister.
+
+  # Réponses pour les commentaires
+  utter_feedback:
+  - text: Merci pour vos commentaires ! Ils nous aident à améliorer notre service.
+  - text: Vos retours sont précieux pour nous. Merci de les partager !
+
+# Définition des variables (slots) que le bot utilise pour stocker des informations pendant la session
+slots:
+  user_interest:
+    type: text
+    mappings:
+      - type: from_text
+        intents:
+          - ask_services
+          - ask_pricing
+          - ask_contact
+          - ask_about
+          - not_interested
+          - need_help
+          - feedback
+
+# Configuration de la session
+session_config:
+  # Temps d'expiration de la session en minutes
+  session_expiration_time: 60
+  # Conserver les variables de session lors du démarrage d'une nouvelle session
+  carry_over_slots_to_new_session: true
+
+# Définition des actions que le bot peut effectuer
+actions:
+  - utter_greet
+  - utter_ask_about
+  - utter_thank_you
+  - utter_goodbye
+  - utter_ask_services
+  - utter_ask_pricing
+  - utter_ask_contact
+  - utter_deny
+  - utter_affirm
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_fallback
+  - utter_not_interested
+  - utter_need_help
+  - utter_feedback

@@ -1,0 +1,90 @@
+version: "3.1"
+
+# Définition des règles que le modèle de dialogue doit suivre pour répondre aux intentions des utilisateurs.
+# Chaque règle associe une intention (intent) à une action (action) spécifique.
+
+rules:
+  # Règle pour saluer l'utilisateur
+  - rule: Greet the user
+    steps:
+      # Lorsque l'intention est 'greet', l'action 'utter_greet' sera exécutée.
+      - intent: greet
+      - action: utter_greet
+
+  # Règle pour dire adieu à l'utilisateur
+  - rule: Goodbye the user
+    steps:
+      # Lorsque l'intention est 'goodbye', l'action 'utter_goodbye' sera exécutée.
+      - intent: goodbye
+      - action: utter_goodbye
+
+  # Règle pour répondre à une question sur les services
+  - rule: Answer services question
+    steps:
+      # Lorsque l'intention est 'ask_services', l'action 'utter_ask_services' sera exécutée.
+      - intent: ask_services
+      - action: utter_ask_services
+
+  # Règle pour répondre à une question sur les prix
+  - rule: Answer pricing question
+    steps:
+      # Lorsque l'intention est 'ask_pricing', l'action 'utter_ask_pricing' sera exécutée.
+      - intent: ask_pricing
+      - action: utter_ask_pricing
+
+  # Règle pour répondre à une question sur les contacts
+  - rule: Answer contact question
+    steps:
+      # Lorsque l'intention est 'ask_contact', l'action 'utter_ask_contact' sera exécutée.
+      - intent: ask_contact
+      - action: utter_ask_contact
+
+  # Règle pour répondre à une question sur l'entreprise
+  - rule: Answer about question
+    steps:
+      # Lorsque l'intention est 'ask_about', l'action 'utter_ask_about' sera exécutée.
+      - intent: ask_about
+      - action: utter_ask_about
+
+  # Règle pour gérer le refus
+  - rule: Handle denial
+    steps:
+      # Lorsque l'intention est 'deny', l'action 'utter_deny' sera exécutée.
+      - intent: deny
+      - action: utter_deny
+
+  # Règle pour gérer l'affirmation
+  - rule: Handle affirmation
+    steps:
+      # Lorsque l'intention est 'affirm', l'action 'utter_affirm' sera exécutée.
+      - intent: affirm
+      - action: utter_affirm
+
+  # Règle pour gérer le désintérêt
+  - rule: Handle not interested
+    steps:
+      # Lorsque l'intention est 'not_interested', l'action 'utter_not_interested' sera exécutée.
+      - intent: not_interested
+      - action: utter_not_interested
+
+  # Règle pour gérer la demande d'aide
+  - rule: Handle need help
+    steps:
+      # Lorsque l'intention est 'need_help', l'action 'utter_need_help' sera exécutée.
+      - intent: need_help
+      - action: utter_need_help
+
+  # Règle pour gérer les commentaires
+  - rule: Handle feedback
+    steps:
+      # Lorsque l'intention est 'feedback', l'action 'utter_feedback' sera exécutée.
+      - intent: feedback
+      - action: utter_feedback
+
+  # Règle pour la réponse de secours
+  - rule: Fallback response
+    steps:
+      # Lorsque l'intention est 'fallback', l'action 'utter_fallback' sera exécutée.
+      # Cela est utilisé lorsque le modèle n'est pas sûr de la réponse à donner.
+      - intent: fallback
+      - action: utter_fallback
