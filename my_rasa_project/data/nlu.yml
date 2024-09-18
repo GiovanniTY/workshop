@@ -1,15 +1,7 @@
 version: "3.1"
 
-
-
 ##nlu : Section principale qui contient les définitions des intentions
 ##et des exemples de phrases.
-
-
-
-
-
-
 
 # Section dédiée aux intentions du chatbot
 nlu:
