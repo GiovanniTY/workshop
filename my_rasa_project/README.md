@@ -29,4 +29,18 @@ Vous avez deux options pour configurer l'environnement :
 ```bash
 cd my_rasa_project
  ```
+2. Créer un environnement virtuel avec Conda :
+
+``` bash
+conda create --name chatbot_env python=3.8
+```
+
+3. Activer l'environnement :
+```bash
+conda activate chatbot_env
+```
+4. Installer rasa :
+``` bash
+pip install rasa
+```
 
